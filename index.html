@@ -24,6 +24,8 @@
                 --text: #f1f5f9;
                 --muted: #64748b;
                 --accent: #c4b5fd;
+                --warning: #f59e0b;
+                --danger: #ef4444;
             }
             html,
             body {
@@ -179,7 +181,7 @@
                 cursor: pointer;
             }
             .logo-circle:hover {
-                transform: scale(1.1);
+                transform: scale(1.05);
                 box-shadow: 0 0 70px rgba(108, 77, 232, 0.4);
                 border-color: rgba(139, 111, 240, 0.5);
             }
@@ -193,7 +195,7 @@
                 font-size: clamp(32px, 7vw, 52px);
                 line-height: 1.1;
                 letter-spacing: -0.03em;
-                margin-bottom: 16px;
+                margin-bottom: 20px;
                 animation: fadeDown 0.6s 0.15s ease both;
             }
             h1 em {
@@ -202,16 +204,25 @@
             }
             .hero-desc {
                 font-size: clamp(14px, 2.5vw, 16px);
-                color: var(--muted);
-                max-width: 400px;
-                line-height: 1.7;
-                margin-bottom: 12px;
+                color: var(--text);
+                max-width: 460px;
+                line-height: 1.6;
+                margin-bottom: 18px;
                 animation: fadeDown 0.6s 0.2s ease both;
             }
+            .hero-desc strong {
+                color: var(--purple-light);
+                display: block;
+                margin-top: 10px;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+            }
             .hero-tagline {
-                font-size: 13px;
+                font-size: 14px;
                 color: var(--accent);
                 font-weight: 500;
+                max-width: 480px;
+                line-height: 1.5;
                 margin-bottom: 44px;
                 animation: fadeDown 0.6s 0.25s ease both;
             }
@@ -245,13 +256,6 @@
                 opacity: 0;
                 transition: opacity 0.2s;
             }
-            .grupo-card.admin::before {
-                background: linear-gradient(
-                    135deg,
-                    rgba(108, 77, 232, 0.08),
-                    transparent
-                );
-            }
             .grupo-card.voz::before {
                 background: linear-gradient(
                     135deg,
@@ -266,9 +270,6 @@
             .grupo-card:hover::before {
                 opacity: 1;
             }
-            .grupo-card.admin:hover {
-                box-shadow: 0 8px 32px rgba(108, 77, 232, 0.12);
-            }
             .grupo-card.voz:hover {
                 box-shadow: 0 8px 32px rgba(37, 211, 102, 0.12);
             }
@@ -281,9 +282,6 @@
                 justify-content: center;
                 font-size: 20px;
                 flex-shrink: 0;
-            }
-            .grupo-card.admin .grupo-icon {
-                background: rgba(108, 77, 232, 0.12);
             }
             .grupo-card.voz .grupo-icon {
                 background: rgba(37, 211, 102, 0.12);
@@ -312,25 +310,8 @@
             .grupo-card:hover .grupo-arrow {
                 transform: translateX(3px);
             }
-            .separator {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                color: var(--muted);
-                font-size: 11px;
-                letter-spacing: 0.08em;
-                text-transform: uppercase;
-                margin: 4px 0;
-            }
-            .separator::before,
-            .separator::after {
-                content: "";
-                flex: 1;
-                height: 1px;
-                background: var(--border);
-            }
 
-            /* MISIÓN */
+            /* SECCIONES COMPARTIDAS */
             .section {
                 padding: 48px 24px;
                 max-width: 600px;
@@ -346,6 +327,8 @@
                 margin-bottom: 16px;
                 text-align: center;
             }
+
+            /* BLOQUES DE TEXTO */
             .mision-texto {
                 font-family: "DM Serif Display", serif;
                 font-size: clamp(16px, 3vw, 20px);
@@ -356,6 +339,11 @@
                 padding-left: 20px;
                 text-align: left;
                 margin-bottom: 28px;
+            }
+            .mision-texto strong {
+                color: var(--text);
+                font-weight: 600;
+                font-style: normal;
             }
             .valores {
                 display: grid;
@@ -382,6 +370,145 @@
                 line-height: 1.5;
             }
 
+            /* PILARES TÉCNICOS */
+            .pilares-container {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                margin-top: 24px;
+                text-align: left;
+            }
+            .pilar-card {
+                background: var(--card);
+                border: 1px solid var(--border);
+                border-radius: 16px;
+                padding: 20px;
+            }
+            .pilar-header {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 14px;
+                font-weight: 600;
+                color: var(--text);
+                margin-bottom: 8px;
+            }
+            .pilar-badge {
+                font-size: 10px;
+                padding: 2px 8px;
+                border-radius: 4px;
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+            .badge-fresh { background: rgba(37, 211, 102, 0.15); color: var(--green); }
+            .badge-clean { background: rgba(139, 111, 240, 0.15); color: var(--accent); }
+            .badge-local { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+            .pilar-desc {
+                font-size: 12.5px;
+                color: #94a3b8;
+                line-height: 1.6;
+            }
+            .pilar-desc strong {
+                color: var(--text);
+            }
+            .semaforo-ejemplo {
+                display: inline-flex;
+                gap: 4px;
+                align-items: center;
+                margin-left: 4px;
+            }
+            .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+            .dot.g { background: var(--green); box-shadow: 0 0 8px var(--green); }
+            .dot.y { background: var(--warning); }
+            .dot.r { background: var(--danger); }
+
+            /* ACRÓNIMO VISUAL */
+            .acronimo-container {
+                background: linear-gradient(
+                    180deg,
+                    var(--card) 0%,
+                    rgba(17, 24, 39, 0.5) 100%
+                );
+                border: 1px solid var(--border);
+                border-radius: 24px;
+                padding: 40px 24px;
+                margin-top: 20px;
+                text-align: left;
+                position: relative;
+            }
+            .acronimo-sub {
+                font-size: 13.5px;
+                color: var(--text);
+                font-weight: 400;
+                margin-bottom: 32px;
+                text-align: justify;
+                letter-spacing: 0.01em;
+                line-height: 1.6;
+            }
+            .acronimo-sub strong {
+                color: var(--accent);
+                font-weight: 600;
+            }
+            .acronimo-lista {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+            .acronimo-item {
+                font-size: clamp(20px, 4vw, 26px);
+                font-weight: 600;
+                color: #ffffff;
+                letter-spacing: -0.01em;
+                display: flex;
+                align-items: center;
+            }
+            .acronimo-item span {
+                color: var(--purple-light);
+                font-size: clamp(26px, 5vw, 34px);
+                font-weight: 800;
+                display: inline-block;
+                width: 35px;
+                text-shadow: 0 0 20px rgba(139, 111, 240, 0.6);
+            }
+            
+            /* Cascada visual simétrica */
+            .item-v1 { padding-left: 0px; }
+            .item-y  { padding-left: 25px; font-size: clamp(16px, 3.5vw, 22px); color: var(--muted); }
+            .item-v2 { padding-left: 50px; }
+            .item-o  { padding-left: 75px; }
+            .item-c  { padding-left: 100px; }
+
+            /* SELLO LOCAL DE MATURÍN */
+            .origen-mbi {
+                margin: 40px auto 12px;
+                text-align: center;
+                background: linear-gradient(90deg, transparent, rgba(139, 111, 240, 0.05), transparent);
+                padding: 18px;
+                border-radius: 12px;
+                border-top: 1px solid rgba(255, 255, 255, 0.02);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+                max-width: 460px;
+            }
+            .origen-titulo {
+                font-family: "DM Serif Display", serif;
+                font-size: 16px;
+                color: var(--text);
+                margin-bottom: 4px;
+                letter-spacing: 0.02em;
+            }
+            .origen-desc {
+                font-size: 12px;
+                color: var(--muted);
+                line-height: 1.5;
+            }
+            .origen-desc em {
+                color: var(--accent);
+                font-style: normal;
+                font-weight: 500;
+            }
+
             /* FOOTER */
             footer {
                 padding: 20px 24px;
@@ -391,6 +518,7 @@
                 justify-content: space-between;
                 flex-wrap: wrap;
                 gap: 8px;
+                margin-top: auto;
             }
             .footer-logo {
                 font-family: "DM Serif Display", serif;
@@ -448,7 +576,19 @@
                 }
                 .footer-links {
                     justify-content: center;
+                    width: 100%;
+                    margin: 8px 0;
                 }
+                .acronimo-lista {
+                    max-width: 260px;
+                }
+                .acronimo-item span {
+                    width: 28px;
+                }
+                .item-y  { padding-left: 15px; }
+                .item-v2 { padding-left: 30px; }
+                .item-o  { padding-left: 45px; }
+                .item-c  { padding-left: 60px; }
             }
         </style>
     </head>
@@ -465,7 +605,7 @@
                     />
                     <span class="logo-text">VY<span>VOC</span></span>
                 </a>
-                <span class="header-tag">MVP · Maturín 2026</span>
+                <span class="header-tag">MVP · Maturín · 2026</span>
             </header>
 
             <section class="hero">
@@ -480,14 +620,16 @@
                     />
                 </div>
                 <h1>El directorio <em>real</em><br />de Maturín</h1>
+                
                 <p class="hero-desc">
-                    Conectamos compradores con negocios verificados en su zona.
-                    Precios reales, stock actualizado, contacto directo.
+                    Conectamos compradores con negocios verificados en su zona. Precios reales, stock actualizado, contacto directo.<br>
+                    <strong>Encuentra. Conecta. Compra.</strong>
                 </p>
+                
                 <p class="hero-tagline">
-                    Encuentra. Conecta. Compra. — Lo que buscás está a 2
-                    cuadras.
+                    Lo que buscas está a la vuelta de la esquina y tú ni lo sabías... VYVOC te conecta, lo encuentra y te aligera el día.
                 </p>
+                
                 <p
                     style="
                         font-size: 13px;
@@ -497,27 +639,10 @@
                         margin-bottom: 24px;
                     "
                 >
-                    Estamos construyendo VYVOC junto a nuestra comunidad. Unite
-                    a nuestros grupos de WhatsApp — compartí tu opinión, seguí
-                    el avance y sé parte desde el primer día. ⤵
+                    Estamos construyendo VYVOC junto a nuestra comunidad. Únete al grupo de WhatsApp, comparte tu feedback y ayúdanos a mejorar el producto desde el primer día. ⤵
                 </p>
+                
                 <div class="grupos">
-                    <a
-                        href="https://chat.whatsapp.com/GrWvU20bPaG5tJxjZNlo3m"
-                        target="_blank"
-                        class="grupo-card admin"
-                    >
-                        <div class="grupo-icon">📢</div>
-                        <div class="grupo-info">
-                            <p class="grupo-nombre">VYVOC · Canal Oficial</p>
-                            <p class="grupo-desc">
-                                Novedades, tips y actualizaciones del proyecto.
-                                Solo nosotros publicamos.
-                            </p>
-                        </div>
-                        <span class="grupo-arrow">→</span>
-                    </a>
-                    <div class="separator">o</div>
                     <a
                         href="https://chat.whatsapp.com/IgtnqHqtUDH1uTyN9yCmCr"
                         target="_blank"
@@ -525,10 +650,9 @@
                     >
                         <div class="grupo-icon">💬</div>
                         <div class="grupo-info">
-                            <p class="grupo-nombre">VYVOC · Tu Voz</p>
+                            <p class="grupo-nombre">VYVOC · Comunidad y Feedback</p>
                             <p class="grupo-desc">
-                                Tu espacio para ideas, reportes y preguntas.
-                                Aquí sí escribís vos.
+                                Tu espacio para dar ideas, reportar fallas y proponer mejoras. Aquí construyes el directorio junto a nosotros.
                             </p>
                         </div>
                         <span class="grupo-arrow">→</span>
@@ -537,22 +661,24 @@
             </section>
 
             <div class="section">
+                <!-- SECCIÓN DE MISIÓN (V-V-O-C INTEGRADO) -->
                 <p class="section-label">Nuestra misión</p>
                 <p class="mision-texto">
-                    Conectar a las personas con negocios locales reales en su
-                    ciudad, a través de un directorio transparente, accesible y
-                    geolocalizado — adaptado a las condiciones reales de
-                    Venezuela.
+                    Transformar el comercio local <strong>Verificando</strong> y <strong>Validando</strong> cada <strong>Oferta</strong> real para tener una ciudad <strong>Conectada</strong> a través de un directorio transparente, accesible y adaptado a la realidad de Venezuela.
                 </p>
-                <p class="section-label" style="margin-top: 32px">
-                    Lo que nos mueve
+
+                <!-- SECCIÓN DE VISIÓN (V-V-O-C INTEGRADO EN SECUENCIA PERFECTA) -->
+                <p class="section-label" style="margin-top: 32px">Nuestra visión</p>
+                <p class="mision-texto" style="border-left-color: rgba(37, 211, 102, 0.4);">
+                    Convertirnos en la plataforma estándar de la región, donde <strong>Verificar</strong> la identidad de cada negocio y <strong>Validar</strong> cada <strong>Oferta</strong> real sea la norma que mantenga a las ciudades del país inteligentemente <strong>Conectadas</strong>.
                 </p>
+                
+                <p class="section-label" style="margin-top: 32px">Lo que nos mueve</p>
                 <div class="valores">
                     <div class="valor">
                         <p class="valor-titulo">Transparencia radical</p>
                         <p class="valor-desc">
-                            Precios, stock y alternativas reales — aunque
-                            compitan.
+                            Precios, stock y alternativas reales — aunque compitan.
                         </p>
                     </div>
                     <div class="valor">
@@ -570,10 +696,68 @@
                     <div class="valor">
                         <p class="valor-titulo">Resiliencia</p>
                         <p class="valor-desc">
-                            Construimos con lo que hay, para la realidad
-                            venezolana.
+                            Construimos con lo que hay, para la realidad venezolana.
                         </p>
                     </div>
+                </div>
+
+                <!-- CÓMO FUNCIONA EL ESTÁNDAR -->
+                <p class="section-label" style="margin-top: 48px">El Estándar VYVOC</p>
+                <div class="pilares-container">
+                    <div class="pilar-card">
+                        <div class="pilar-header">
+                            <span>⏱</span> Frescura de Datos garantizada
+                            <span class="pilar-badge badge-fresh">Semáforo</span>
+                        </div>
+                        <p class="pilar-desc">
+                            A diferencia de las redes sociales, cada producto en VYVOC incluye un indicador visual 
+                            <span class="semaforo-ejemplo"><span class="dot g"></span><span class="dot y"></span><span class="dot r"></span></span> 
+                            que te dice con precisión matemática **hace cuánto tiempo se verificó el precio y el stock real**, eliminando sorpresas al llegar a la tienda.
+                        </p>
+                    </div>f
+
+                    <div class="pilar-card">
+                        <div class="pilar-header">
+                            <span>⚖</span> Transparencia Radical
+                            <span class="pilar-badge badge-clean">Algoritmo Limpio</span>
+                        </div>
+                        <p class="pilar-desc">
+                            **Aquí las posiciones no se compran.** El algoritmo ordena estrictamente por relevancia y proximidad geográfica real. Los comercios nuevos reciben un impulso justo (*Cold Start* temporal), asegurando igualdad de condiciones tanto para locales grandes como para pequeños emprendedores.
+                        </p>
+                    </div>
+
+                    <div class="pilar-card">
+                        <div class="pilar-header">
+                            <span>🏠</span> Identidad Hiperlocal Propia
+                            <span class="pilar-badge badge-local">Mini-Landings</span>
+                        </div>
+                        <p class="pilar-desc">
+                            No somos un buscador genérico y frío. Cada comercio cuenta con una **mini-landing profesional integrada** dentro de nuestra estructura limpia (`/maturin/tiendas/nombre-negocio`), pensada como el canal de descubrimiento definitivo para la realidad de Venezuela.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SECCIÓN EXPLICATIVA DEL ACRÓNIMO -->
+                <p class="section-label" style="margin-top: 48px">¿Qué significa VYVOC?</p>
+                <div class="acronimo-container">
+                    <p class="acronimo-sub">
+                        VYVOC no es solo un acrónimo; es la estructura con la que devolvemos la certeza a la ciudad. Un flujo lógico diseñado para asegurar que la información real esté siempre al alcance de los ciudadanos, garantizando transparencia y eficiencia en cada rincón.
+                    </p>
+                    <div class="acronimo-lista">
+                        <div class="acronimo-item item-v1"><span>V</span>erificando</div>
+                        <div class="acronimo-item item-y"><span>Y</span></div>
+                        <div class="acronimo-item item-v2"><span>V</span>alidando</div>
+                        <div class="acronimo-item item-o"><span>O</span>fertas</div>
+                        <div class="acronimo-item item-c"><span>C</span>onectadas</div>
+                    </div>
+                </div>
+
+                <!-- SELLO DE ORIGEN LOCAL -->
+                <div class="origen-mbi">
+                    <p class="origen-titulo">📍 Hecho en Maturín</p>
+                    <p class="origen-desc">
+                        Diseñado en Maturín, Estado Monagas, para toda Venezuela. Ingeniería local con estándares globales, infraestructura independiente y desarrollo soberano adaptado a nuestra realidad.
+                    </p>
                 </div>
             </div>
 
@@ -581,14 +765,9 @@
                 <span class="footer-logo">VY<span>VOC</span></span>
                 <div class="footer-links">
                     <a
-                        href="https://chat.whatsapp.com/GrWvU20bPaG5tJxjZNlo3m"
-                        target="_blank"
-                        >Canal oficial</a
-                    >
-                    <a
                         href="https://chat.whatsapp.com/IgtnqHqtUDH1uTyN9yCmCr"
                         target="_blank"
-                        >Tu Voz</a
+                        >Comunidad</a
                     >
                     <a href="https://josegrillo.vercel.app/" target="_blank"
                         >José Grillo</a
