@@ -145,19 +145,25 @@ header {
   50% { opacity: 0.5; transform: scale(0.7); }
 }
 
-.colibri {
-  width: 72px;
-  height: 72px;
-  border-radius: 20px;
-  overflow: hidden;
+.logo-circle {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  padding: 0 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
   margin: 0 auto 44px;
   animation: fadeDown 0.7s 0.1s ease both;
-  box-shadow: 0 0 40px rgba(108, 77, 232, 0.25);
 }
-.colibri img {
+.logo-circle img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 1050px;
+  height: auto;
+  border-radius: 32px;
+  display: block;
+  box-shadow: 0 0 60px rgba(108, 77, 232, 0.2);
 }
 
 h1 {
@@ -484,8 +490,8 @@ footer {
         Estamos naciendo — únete desde ya
       </div>
 
-      <div class="colibri">
-        <img src="./VyvocQR-explicacion.webp" alt="Colibrí VYVOC" />
+      <div class="logo-circle">
+        <img src="./VyvocQR-explicacion.webp" alt="VYVOC Logo" />
       </div>
 
       <h1>Las oportunidades existen.<br /><em>El problema es que muchas siguen siendo invisibles.</em></h1>
